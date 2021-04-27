@@ -52,4 +52,16 @@ module.exports = {
       'typeof WEBGL_RENDERER': JSON.stringify(true),
     }),
   ],
+  optimization: {
+    splitChunks: {
+      cacheGroups: {
+        commons: {
+          test: /[\\/]node_modules[\\/]/,
+          name: 'modules',
+          chunks: 'all',
+          filename: '[name].app.bundle.js',
+        },
+      },
+    },
+  },
 };
