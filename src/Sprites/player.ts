@@ -48,10 +48,11 @@ export class PlayerSprite extends Phaser.GameObjects.Sprite {
         }
     
         // TODO: Clean this up
-        // if (keys.up.isDown || keys.down.isDown || keys.left.isDown || keys.right.isDown) {
-        //   animationName = "player-walk";
-        // } else {
-        animationName = 'player-idle';
+        if (keys.down.isDown) {
+          animationName = "player-walking-forward";
+        } else {
+            animationName = 'player-idle';
+        }
     
         if(this.lastAnim !== animationName) {
           this.lastAnim = animationName;
