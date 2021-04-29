@@ -1,11 +1,3 @@
-/*
- * ATTENTION: The "eval" devtool has been used (maybe by default in mode: "development").
- * This devtool is neither made for production nor for readable output files.
- * It uses "eval()" calls to create a separate source file in the browser devtools.
- * If you are trying to read the output file, select a different devtool (https://webpack.js.org/configuration/devtool/)
- * or disable the default devtool with "devtool: false".
- * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
- */
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
@@ -16,7 +8,60 @@
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 "use strict";
-eval("\r\nvar __extends = (this && this.__extends) || (function () {\r\n    var extendStatics = function (d, b) {\r\n        extendStatics = Object.setPrototypeOf ||\r\n            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||\r\n            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };\r\n        return extendStatics(d, b);\r\n    };\r\n    return function (d, b) {\r\n        if (typeof b !== \"function\" && b !== null)\r\n            throw new TypeError(\"Class extends value \" + String(b) + \" is not a constructor or null\");\r\n        extendStatics(d, b);\r\n        function __() { this.constructor = d; }\r\n        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());\r\n    };\r\n})();\r\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\r\nexports.testScene = void 0;\r\nvar player_1 = __webpack_require__(/*! ../Sprites/player */ \"./src/Sprites/player.ts\");\r\nvar testScene = /** @class */ (function (_super) {\r\n    __extends(testScene, _super);\r\n    function testScene() {\r\n        return _super.call(this, 'SceneTest') || this;\r\n    }\r\n    testScene.prototype.preload = function () {\r\n        this.load.spritesheet(\"player\", \"assets/player_idle.png\", { frameWidth: 64, frameHeight: 64 });\r\n        this.load.spritesheet(\"player_walking_forward\", \"assets/player_walking_forward.png\", { frameWidth: 64, frameHeight: 64 });\r\n    };\r\n    testScene.prototype.create = function () {\r\n        this.anims.create({\r\n            key: 'player-idle',\r\n            frames: this.anims.generateFrameNumbers('player', { frames: [0, 1, 2, 3, 4] }),\r\n            frameRate: 4,\r\n            repeat: -1\r\n        });\r\n        this.anims.create({\r\n            key: 'player-walking-forward',\r\n            frames: this.anims.generateFrameNumbers('player_walking_forward', { frames: [0, 1, 2, 3, 4, 5, 6, 7] }),\r\n            frameRate: 8,\r\n            repeat: -1\r\n        });\r\n        var player = new player_1.PlayerSprite({ scene: this, x: 100, y: 100 });\r\n    };\r\n    return testScene;\r\n}(Phaser.Scene));\r\nexports.testScene = testScene;\r\n\n\n//# sourceURL=webpack://Illyria/./src/Scenes/testScene.ts?");
+
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        if (typeof b !== "function" && b !== null)
+            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.testScene = void 0;
+var player_1 = __webpack_require__(/*! ../Sprites/player */ "./src/Sprites/player.ts");
+var testScene = /** @class */ (function (_super) {
+    __extends(testScene, _super);
+    function testScene() {
+        return _super.call(this, 'SceneTest') || this;
+    }
+    testScene.prototype.preload = function () {
+        this.load.spritesheet("player", "assets/player_idle.png", { frameWidth: 64, frameHeight: 64 });
+        this.load.spritesheet("player_walking_forward", "assets/player_walking_forward.png", { frameWidth: 64, frameHeight: 64 });
+        this.load.spritesheet("player_idle_side", "assets/player_idle_right.png", { frameWidth: 64, frameHeight: 64 });
+    };
+    testScene.prototype.create = function () {
+        this.anims.create({
+            key: 'player-idle',
+            frames: this.anims.generateFrameNumbers('player', { frames: [0, 1, 2, 3, 4] }),
+            frameRate: 4,
+            repeat: -1
+        });
+        this.anims.create({
+            key: 'player-idle-side',
+            frames: this.anims.generateFrameNumbers('player_idle_side', { frames: [0, 1, 2, 3, 4, 5, 6] }),
+            frameRate: 4,
+            repeat: -1
+        });
+        this.anims.create({
+            key: 'player-walking-forward',
+            frames: this.anims.generateFrameNumbers('player_walking_forward', { frames: [0, 1, 2, 3, 4, 5, 6, 7] }),
+            frameRate: 8,
+            repeat: -1
+        });
+        var player = new player_1.PlayerSprite({ scene: this, x: 100, y: 100 });
+    };
+    return testScene;
+}(Phaser.Scene));
+exports.testScene = testScene;
+
 
 /***/ }),
 
@@ -27,7 +72,90 @@ eval("\r\nvar __extends = (this && this.__extends) || (function () {\r\n    var 
 /***/ (function(__unused_webpack_module, exports) {
 
 "use strict";
-eval("\r\nvar __extends = (this && this.__extends) || (function () {\r\n    var extendStatics = function (d, b) {\r\n        extendStatics = Object.setPrototypeOf ||\r\n            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||\r\n            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };\r\n        return extendStatics(d, b);\r\n    };\r\n    return function (d, b) {\r\n        if (typeof b !== \"function\" && b !== null)\r\n            throw new TypeError(\"Class extends value \" + String(b) + \" is not a constructor or null\");\r\n        extendStatics(d, b);\r\n        function __() { this.constructor = d; }\r\n        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());\r\n    };\r\n})();\r\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\r\nexports.PlayerSprite = void 0;\r\nvar PlayerSprite = /** @class */ (function (_super) {\r\n    __extends(PlayerSprite, _super);\r\n    function PlayerSprite(config) {\r\n        var _this = _super.call(this, config.scene, config.x, config.y, \"player\") || this;\r\n        _this.scene = config.scene;\r\n        _this.lastAnim = null;\r\n        _this.vel = 200;\r\n        _this.scene.physics.world.enable(_this);\r\n        _this.scene.add.existing(_this);\r\n        var _a = Phaser.Input.Keyboard.KeyCodes, LEFT = _a.LEFT, RIGHT = _a.RIGHT, UP = _a.UP, DOWN = _a.DOWN;\r\n        _this.keys = _this.scene.input.keyboard.addKeys({\r\n            left: LEFT,\r\n            right: RIGHT,\r\n            up: UP,\r\n            down: DOWN,\r\n        });\r\n        return _this;\r\n    }\r\n    PlayerSprite.prototype.preUpdate = function (time, delta) {\r\n        _super.prototype.preUpdate.call(this, time, delta);\r\n        var keys = this.keys;\r\n        var animationName = 'player-idle';\r\n        if (keys.left.isDown) {\r\n            this.body.velocity.x = -this.vel;\r\n            this.setFlipX(true);\r\n        }\r\n        else if (keys.right.isDown) {\r\n            this.body.velocity.x = this.vel;\r\n            this.setFlipX(false);\r\n        }\r\n        else {\r\n            this.body.velocity.x = 0;\r\n        }\r\n        if (keys.up.isDown) {\r\n            this.body.velocity.y = -this.vel;\r\n        }\r\n        else if (keys.down.isDown) {\r\n            this.body.velocity.y = this.vel;\r\n        }\r\n        else {\r\n            this.body.velocity.y = 0;\r\n        }\r\n        // TODO: Clean this up\r\n        if (keys.down.isDown) {\r\n            animationName = \"player-walking-forward\";\r\n        }\r\n        else {\r\n            animationName = 'player-idle';\r\n        }\r\n        if (this.lastAnim !== animationName) {\r\n            this.lastAnim = animationName;\r\n            this.anims.play(animationName, true);\r\n        }\r\n    };\r\n    return PlayerSprite;\r\n}(Phaser.GameObjects.Sprite));\r\nexports.PlayerSprite = PlayerSprite;\r\n\n\n//# sourceURL=webpack://Illyria/./src/Sprites/player.ts?");
+
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        if (typeof b !== "function" && b !== null)
+            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.PlayerSprite = void 0;
+var PlayerSprite = /** @class */ (function (_super) {
+    __extends(PlayerSprite, _super);
+    function PlayerSprite(config) {
+        var _this = _super.call(this, config.scene, config.x, config.y, "player") || this;
+        _this.scene = config.scene;
+        _this.lastAnim = null;
+        _this.vel = 200;
+        _this.direction = 'front';
+        _this.scene.physics.world.enable(_this);
+        _this.scene.add.existing(_this);
+        var _a = Phaser.Input.Keyboard.KeyCodes, A = _a.A, D = _a.D, W = _a.W, S = _a.S;
+        _this.keys = _this.scene.input.keyboard.addKeys({
+            left: A,
+            right: D,
+            up: W,
+            down: S,
+        });
+        return _this;
+    }
+    PlayerSprite.prototype.preUpdate = function (time, delta) {
+        _super.prototype.preUpdate.call(this, time, delta);
+        var keys = this.keys;
+        var animationName = 'player-idle';
+        if (keys.left.isDown) {
+            this.body.velocity.x = -this.vel;
+            this.direction = 'side';
+            this.setFlipX(true);
+        }
+        else if (keys.right.isDown) {
+            this.body.velocity.x = this.vel;
+            this.direction = 'side';
+            this.setFlipX(false);
+        }
+        else {
+            this.body.velocity.x = 0;
+        }
+        if (keys.up.isDown) {
+            this.body.velocity.y = -this.vel;
+            this.direction = 'back';
+        }
+        else if (keys.down.isDown) {
+            this.direction = 'front';
+            this.body.velocity.y = this.vel;
+        }
+        else {
+            this.body.velocity.y = 0;
+        }
+        // TODO: Clean this up
+        if (keys.down.isDown) {
+            animationName = "player-walking-forward";
+        }
+        else if (this.direction == 'side') {
+            animationName = 'player-idle-side';
+        }
+        else {
+            animationName = 'player-idle';
+        }
+        if (this.lastAnim !== animationName) {
+            this.lastAnim = animationName;
+            this.anims.play(animationName, true);
+        }
+    };
+    return PlayerSprite;
+}(Phaser.GameObjects.Sprite));
+exports.PlayerSprite = PlayerSprite;
+
 
 /***/ }),
 
@@ -38,7 +166,68 @@ eval("\r\nvar __extends = (this && this.__extends) || (function () {\r\n    var 
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
-eval("\r\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\r\nexports.game = void 0;\r\nvar Phaser = __webpack_require__(/*! phaser */ \"./node_modules/phaser/dist/phaser.js\");\r\nvar testScene_1 = __webpack_require__(/*! ./Scenes/testScene */ \"./src/Scenes/testScene.ts\");\r\n// const sceneConfig: Phaser.Types.Scenes.SettingsConfig = {\r\n//     active: false,\r\n//     visible: false,\r\n//     key: 'Game',\r\n//   };\r\n//   export class GameScene extends Phaser.Scene {\r\n//     private square: Phaser.GameObjects.Rectangle & { body: Phaser.Physics.Arcade.Body };\r\n//     constructor() {\r\n//       super(sceneConfig);\r\n//     }\r\n//     public create() {\r\n//       this.square = this.add.rectangle(400, 400, 100, 100, 0xFFFFFF) as any;\r\n//       this.physics.add.existing(this.square);\r\n//     }\r\n//     public update() {\r\n//         // const cursorKeys = this.input.keyboard.addKeys({ \r\n//         //     'up': Phaser.Input.Keyboard.KeyCodes.W,\r\n//         //     'down': Phaser.Input.Keyboard.KeyCodes.S,\r\n//         //     'left': Phaser.Input.Keyboard.KeyCodes.A,\r\n//         //     'right': Phaser.Input.Keyboard.KeyCodes.D });\r\n//         //     console.log(cursorKeys);\r\n//         const cursorKeys = this.input.keyboard.createCursorKeys();\r\n//         if (cursorKeys.up.isDown) {\r\n//           this.square.body.setVelocityY(-500);\r\n//         } else if (cursorKeys.down.isDown) {\r\n//           this.square.body.setVelocityY(500);\r\n//         } else {\r\n//           this.square.body.setVelocityY(0);\r\n//         }\r\n//         if (cursorKeys.right.isDown) {\r\n//           this.square.body.setVelocityX(500);\r\n//         } else if (cursorKeys.left.isDown) {\r\n//           this.square.body.setVelocityX(-500);\r\n//         } else {\r\n//           this.square.body.setVelocityX(0);\r\n//         }\r\n//     }\r\n//   }\r\nvar gameConfig = {\r\n    title: 'Sample',\r\n    type: Phaser.AUTO,\r\n    scale: {\r\n        width: window.innerWidth,\r\n        height: window.innerHeight,\r\n    },\r\n    scene: testScene_1.testScene,\r\n    physics: {\r\n        default: 'arcade',\r\n        arcade: {\r\n            debug: true,\r\n        },\r\n    },\r\n    parent: 'game',\r\n    backgroundColor: '#000000',\r\n};\r\nexports.game = new Phaser.Game(gameConfig);\r\n\n\n//# sourceURL=webpack://Illyria/./src/main.ts?");
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.game = void 0;
+var Phaser = __webpack_require__(/*! phaser */ "./node_modules/phaser/dist/phaser.js");
+var testScene_1 = __webpack_require__(/*! ./Scenes/testScene */ "./src/Scenes/testScene.ts");
+// const sceneConfig: Phaser.Types.Scenes.SettingsConfig = {
+//     active: false,
+//     visible: false,
+//     key: 'Game',
+//   };
+//   export class GameScene extends Phaser.Scene {
+//     private square: Phaser.GameObjects.Rectangle & { body: Phaser.Physics.Arcade.Body };
+//     constructor() {
+//       super(sceneConfig);
+//     }
+//     public create() {
+//       this.square = this.add.rectangle(400, 400, 100, 100, 0xFFFFFF) as any;
+//       this.physics.add.existing(this.square);
+//     }
+//     public update() {
+//         // const cursorKeys = this.input.keyboard.addKeys({ 
+//         //     'up': Phaser.Input.Keyboard.KeyCodes.W,
+//         //     'down': Phaser.Input.Keyboard.KeyCodes.S,
+//         //     'left': Phaser.Input.Keyboard.KeyCodes.A,
+//         //     'right': Phaser.Input.Keyboard.KeyCodes.D });
+//         //     console.log(cursorKeys);
+//         const cursorKeys = this.input.keyboard.createCursorKeys();
+//         if (cursorKeys.up.isDown) {
+//           this.square.body.setVelocityY(-500);
+//         } else if (cursorKeys.down.isDown) {
+//           this.square.body.setVelocityY(500);
+//         } else {
+//           this.square.body.setVelocityY(0);
+//         }
+//         if (cursorKeys.right.isDown) {
+//           this.square.body.setVelocityX(500);
+//         } else if (cursorKeys.left.isDown) {
+//           this.square.body.setVelocityX(-500);
+//         } else {
+//           this.square.body.setVelocityX(0);
+//         }
+//     }
+//   }
+var gameConfig = {
+    title: 'Sample',
+    type: Phaser.AUTO,
+    scale: {
+        width: window.innerWidth,
+        height: window.innerHeight,
+    },
+    scene: testScene_1.testScene,
+    physics: {
+        default: 'arcade',
+        arcade: {
+            debug: true,
+        },
+    },
+    parent: 'game',
+    backgroundColor: '#ffffff',
+};
+exports.game = new Phaser.Game(gameConfig);
+
 
 /***/ }),
 
@@ -48,7 +237,29 @@ eval("\r\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\r\n
   \***************************************************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-eval("var map = {\n\t\"./log\": \"./node_modules/webpack/hot/log.js\"\n};\n\n\nfunction webpackContext(req) {\n\tvar id = webpackContextResolve(req);\n\treturn __webpack_require__(id);\n}\nfunction webpackContextResolve(req) {\n\tif(!__webpack_require__.o(map, req)) {\n\t\tvar e = new Error(\"Cannot find module '\" + req + \"'\");\n\t\te.code = 'MODULE_NOT_FOUND';\n\t\tthrow e;\n\t}\n\treturn map[req];\n}\nwebpackContext.keys = function webpackContextKeys() {\n\treturn Object.keys(map);\n};\nwebpackContext.resolve = webpackContextResolve;\nmodule.exports = webpackContext;\nwebpackContext.id = \"./node_modules/webpack/hot sync ^\\\\.\\\\/log$\";\n\n//# sourceURL=webpack://Illyria/./node_modules/webpack/hot/_sync_nonrecursive_^\\.\\/log$?");
+var map = {
+	"./log": "./node_modules/webpack/hot/log.js"
+};
+
+
+function webpackContext(req) {
+	var id = webpackContextResolve(req);
+	return __webpack_require__(id);
+}
+function webpackContextResolve(req) {
+	if(!__webpack_require__.o(map, req)) {
+		var e = new Error("Cannot find module '" + req + "'");
+		e.code = 'MODULE_NOT_FOUND';
+		throw e;
+	}
+	return map[req];
+}
+webpackContext.keys = function webpackContextKeys() {
+	return Object.keys(map);
+};
+webpackContext.resolve = webpackContextResolve;
+module.exports = webpackContext;
+webpackContext.id = "./node_modules/webpack/hot sync ^\\.\\/log$";
 
 /***/ })
 
@@ -204,3 +415,4 @@ eval("var map = {\n\t\"./log\": \"./node_modules/webpack/hot/log.js\"\n};\n\n\nf
 /******/ 	
 /******/ })()
 ;
+//# sourceMappingURL=app.bundle.js.map

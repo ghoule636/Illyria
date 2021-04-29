@@ -9,6 +9,8 @@ module.exports = {
     vendors: ['phaser'],
   },
 
+  devtool: 'source-map',
+
   module: {
     rules: [
       {
