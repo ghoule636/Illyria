@@ -11,7 +11,7 @@ export class testScene extends Phaser.Scene {
         this.load.spritesheet("player_idle_side", "assets/player_idle_right.png", { frameWidth: 64, frameHeight: 64 });
     }
 
-    create() {
+    createAnimations() {
         this.anims.create({
             key: 'player-idle',
             frames: this.anims.generateFrameNumbers('player', {frames: [0, 1, 2, 3, 4]}),
@@ -32,8 +32,13 @@ export class testScene extends Phaser.Scene {
             frameRate: 8,
             repeat:-1
         })
+    }
+    
+    create() {
+        this.createAnimations();
 
         let player = new PlayerSprite({scene: this, x: 100, y: 100});
-        
     }
+
+
 }

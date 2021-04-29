@@ -37,7 +37,7 @@ var testScene = /** @class */ (function (_super) {
         this.load.spritesheet("player_walking_forward", "assets/player_walking_forward.png", { frameWidth: 64, frameHeight: 64 });
         this.load.spritesheet("player_idle_side", "assets/player_idle_right.png", { frameWidth: 64, frameHeight: 64 });
     };
-    testScene.prototype.create = function () {
+    testScene.prototype.createAnimations = function () {
         this.anims.create({
             key: 'player-idle',
             frames: this.anims.generateFrameNumbers('player', { frames: [0, 1, 2, 3, 4] }),
@@ -56,6 +56,9 @@ var testScene = /** @class */ (function (_super) {
             frameRate: 8,
             repeat: -1
         });
+    };
+    testScene.prototype.create = function () {
+        this.createAnimations();
         var player = new player_1.PlayerSprite({ scene: this, x: 100, y: 100 });
     };
     return testScene;
@@ -171,44 +174,6 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.game = void 0;
 var Phaser = __webpack_require__(/*! phaser */ "./node_modules/phaser/dist/phaser.js");
 var testScene_1 = __webpack_require__(/*! ./Scenes/testScene */ "./src/Scenes/testScene.ts");
-// const sceneConfig: Phaser.Types.Scenes.SettingsConfig = {
-//     active: false,
-//     visible: false,
-//     key: 'Game',
-//   };
-//   export class GameScene extends Phaser.Scene {
-//     private square: Phaser.GameObjects.Rectangle & { body: Phaser.Physics.Arcade.Body };
-//     constructor() {
-//       super(sceneConfig);
-//     }
-//     public create() {
-//       this.square = this.add.rectangle(400, 400, 100, 100, 0xFFFFFF) as any;
-//       this.physics.add.existing(this.square);
-//     }
-//     public update() {
-//         // const cursorKeys = this.input.keyboard.addKeys({ 
-//         //     'up': Phaser.Input.Keyboard.KeyCodes.W,
-//         //     'down': Phaser.Input.Keyboard.KeyCodes.S,
-//         //     'left': Phaser.Input.Keyboard.KeyCodes.A,
-//         //     'right': Phaser.Input.Keyboard.KeyCodes.D });
-//         //     console.log(cursorKeys);
-//         const cursorKeys = this.input.keyboard.createCursorKeys();
-//         if (cursorKeys.up.isDown) {
-//           this.square.body.setVelocityY(-500);
-//         } else if (cursorKeys.down.isDown) {
-//           this.square.body.setVelocityY(500);
-//         } else {
-//           this.square.body.setVelocityY(0);
-//         }
-//         if (cursorKeys.right.isDown) {
-//           this.square.body.setVelocityX(500);
-//         } else if (cursorKeys.left.isDown) {
-//           this.square.body.setVelocityX(-500);
-//         } else {
-//           this.square.body.setVelocityX(0);
-//         }
-//     }
-//   }
 var gameConfig = {
     title: 'Sample',
     type: Phaser.AUTO,
