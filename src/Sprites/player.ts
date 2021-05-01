@@ -1,4 +1,4 @@
-export class PlayerSprite extends Phaser.GameObjects.Sprite {
+export class PlayerSprite extends Phaser.Physics.Arcade.Sprite {
     lastAnim: any;
     vel: any;
     keys: any;
@@ -13,7 +13,9 @@ export class PlayerSprite extends Phaser.GameObjects.Sprite {
         this.vel = 200;
         this.direction = 'front';
 
-        this.scene.physics.world.enable(this);
+        // this.scene.physics.world.enable(this);
+        this.scene.physics.add.existing(this);   
+        this.setCollideWorldBounds(true);     
         this.scene.add.existing(this);
 
         const { A, D, W, S } = Phaser.Input.Keyboard.KeyCodes;

@@ -1,0 +1,83 @@
+{
+    "Map/SizeTest": {
+        "height": 4300,
+        "width": 2
+    },
+    "activeFile": "assets/testMap.tmx",
+    "expandedProjectPaths": [
+        "map",
+        "assets"
+    ],
+    "fileStates": {
+        "": {
+            "scaleInDock": 1,
+            "scaleInEditor": 11
+        },
+        "assets/grass_dirt.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 5.5
+        },
+        "assets/testMap.tmx": {
+            "scale": 4,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 483.75,
+                "y": 470
+            }
+        },
+        "assets/testMap.tmx#grass_dirt": {
+            "scaleInDock": 3,
+            "scaleInEditor": 11
+        },
+        "assets/testMap.tmx#grass_dirt_tilesheet (1)": {
+            "scaleInEditor": 1
+        },
+        "assets/testMap.tmx#test": {
+            "scaleInEditor": 8
+        },
+        "assets/testMap.tmx#tree_rocks": {
+            "scaleInEditor": 1
+        },
+        "grass + dirt.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 4
+        },
+        "grass_dirt.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 8
+        },
+        "testMap.tmx": {
+            "scale": 0.5426875,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 960.0368536220199,
+                "y": 801.5662789358518
+            }
+        }
+    },
+    "last.exportedFilePath": "E:/GabeWorkspace/Illyria/assets/maps",
+    "last.imagePath": "C:/Users/Gabe/Downloads",
+    "map.lastUsedExportFilter": "JSON map files (*.json)",
+    "map.lastUsedFormat": "tmx",
+    "map.tileHeight": 16,
+    "map.tileWidth": 16,
+    "openFiles": [
+        "assets/testMap.tmx"
+    ],
+    "project": "testProject.tiled-project",
+    "recentFiles": [
+        "assets/testMap.tmx",
+        "assets/grass_dirt.tsx",
+        "testMap.tmx",
+        "grass_dirt.tsx",
+        "grass + dirt.tsx"
+    ],
+    "tileset.embedInMap": true,
+    "tileset.lastUsedFormat": "tsx",
+    "tileset.margin": 0,
+    "tileset.spacing": 0,
+    "tileset.tileSize": {
+        "height": 48,
+        "width": 48
+    }
+}

@@ -33,9 +33,15 @@ var testScene = /** @class */ (function (_super) {
         return _super.call(this, 'SceneTest') || this;
     }
     testScene.prototype.preload = function () {
-        this.load.spritesheet("player", "assets/player_idle.png", { frameWidth: 64, frameHeight: 64 });
-        this.load.spritesheet("player_walking_forward", "assets/player_walking_forward.png", { frameWidth: 64, frameHeight: 64 });
-        this.load.spritesheet("player_idle_side", "assets/player_idle_right.png", { frameWidth: 64, frameHeight: 64 });
+        //sprites
+        this.load.spritesheet("player", "assets/player/player_idle.png", { frameWidth: 64, frameHeight: 64 });
+        this.load.spritesheet("player_walking_forward", "assets/player/player_walking_forward.png", { frameWidth: 64, frameHeight: 64 });
+        this.load.spritesheet("player_idle_side", "assets/player/player_idle_right.png", { frameWidth: 64, frameHeight: 64 });
+        //world map
+        this.load.image("tiles", "assets/tilesets/grass_dirt_tilesheet_extruded.png");
+        this.load.image("objectTiles", "assets/tilesets/Objects_tilesheet.png");
+        this.load.image("treeTile", "assets/tilesets/Tree_1.png");
+        this.load.tilemapTiledJSON("map", "assets/maps/testMap.json");
     };
     testScene.prototype.createAnimations = function () {
         this.anims.create({
@@ -57,9 +63,22 @@ var testScene = /** @class */ (function (_super) {
             repeat: -1
         });
     };
+    testScene.prototype.createMap = function () {
+        var map = this.make.tilemap({ key: "map" });
+        var tileset = map.addTilesetImage("grass_dirt", "tiles", 16, 16, 1, 2);
+        var objectTileSet = map.addTilesetImage("tree_rocks", "objectTiles");
+        var treeTileSet = map.addTilesetImage("Tree_1", "treeTile");
+        var allLayers = [tileset, objectTileSet];
+        var worldLayer = map.createLayer("below_player", tileset, 0, 0).setScale(2);
+        var objectLayer = map.createLayer("Tile Layer 2", treeTileSet, 0, 0).setScale(2);
+    };
     testScene.prototype.create = function () {
         this.createAnimations();
-        var player = new player_1.PlayerSprite({ scene: this, x: 100, y: 100 });
+        this.createMap();
+        this.cameras.main.setBounds(0, 0, 1600 * 2, 1600 * 2);
+        this.physics.world.setBounds(0, 0, 1600 * 2, 1600 * 2);
+        var player = new player_1.PlayerSprite({ scene: this, x: 1350, y: 100 });
+        this.cameras.main.startFollow(player);
     };
     return testScene;
 }(Phaser.Scene));
@@ -101,7 +120,9 @@ var PlayerSprite = /** @class */ (function (_super) {
         _this.lastAnim = null;
         _this.vel = 200;
         _this.direction = 'front';
-        _this.scene.physics.world.enable(_this);
+        // this.scene.physics.world.enable(this);
+        _this.scene.physics.add.existing(_this);
+        _this.setCollideWorldBounds(true);
         _this.scene.add.existing(_this);
         var _a = Phaser.Input.Keyboard.KeyCodes, A = _a.A, D = _a.D, W = _a.W, S = _a.S;
         _this.keys = _this.scene.input.keyboard.addKeys({
@@ -156,7 +177,7 @@ var PlayerSprite = /** @class */ (function (_super) {
         }
     };
     return PlayerSprite;
-}(Phaser.GameObjects.Sprite));
+}(Phaser.Physics.Arcade.Sprite));
 exports.PlayerSprite = PlayerSprite;
 
 
